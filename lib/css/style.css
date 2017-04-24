@@ -41,14 +41,15 @@
   .react-timeline .element {
     height: 40px;
     line-height: 40px;
-    padding: 0 10px;
     font-weight: bold;
     background: #06f;
     color: #fff;
+    text-align: center; }
+  .react-timeline .element__content {
+    padding: 0 10px;
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center; }
+    text-overflow: ellipsis; }
   .react-timeline .layout {
     position: relative;
     margin-left: -200px; }
