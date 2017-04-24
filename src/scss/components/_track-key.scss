@@ -7,16 +7,14 @@
 .track-key__entry {
   position: relative;
   overflow: hidden;
-  height: $react-timeline-track-height;
+  height: $react-timeline-track-height + $react-timeline-border-width;
   padding-right: $react-timeline-sidebar-key-indent-width;
   line-height: $react-timeline-track-height;
-  // padding: 0;
   white-space: nowrap;
   text-overflow: ellipsis;
   font-weight: bold;
-  // background-color: #fff;
   text-align: left;
-  box-shadow: 0 -1px 0 0 $react-timeline-sidebar-separator-color inset; /* TODO: revisit */
+  border-bottom: $react-timeline-border-width solid $react-timeline-sidebar-separator-color;
 }
 
 .track-keys > .track-key >

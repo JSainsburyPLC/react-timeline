@@ -1,4 +1,15 @@
-.controls {}
+.controls {
+  position: relative;
+}
+
+.controls__content {
+  @media (min-width: $react-timeline-auto-open-breakpoint) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+}
 
 .controls__button {
   $size: 36px;

@@ -1,7 +1,16 @@
 .react-timeline {
   position: relative;
+  z-index: 1;
   overflow: hidden;
   font-family: sans-serif; }
+  .react-timeline .controls {
+    position: relative; }
+  @media (min-width: 1000px) {
+    .react-timeline .controls__content {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2; } }
   .react-timeline .controls__button {
     display: inline-block;
     width: 36px;
@@ -66,16 +75,16 @@
     top: 0;
     bottom: 0;
     margin-left: -1px;
-    border-left: 2px dotted;
+    border-left: 2px solid;
     opacity: 0; }
   .react-timeline .marker.is-visible {
     opacity: 1; }
   .react-timeline .marker--now {
     color: #ff007f;
-    border-color: rgba(255, 0, 127, 0.8); }
+    border-color: rgba(255, 0, 127, 0.5); }
   .react-timeline .marker--pointer {
     color: #646464;
-    border-color: rgba(100, 100, 100, 0.8); }
+    border-color: rgba(100, 100, 100, 0.5); }
   .react-timeline .marker__label {
     position: absolute;
     bottom: 100%;
@@ -110,23 +119,22 @@
     box-shadow: 10px 0 10px -5px rgba(12, 12, 12, 0.1); }
   .react-timeline .timebar__row {
     position: relative;
-    height: 40px;
+    height: 41px;
     overflow: hidden;
     line-height: 40px; }
   .react-timeline .timebar__cell {
     position: absolute;
-    height: 40px;
     text-align: center;
     background: #fff;
-    box-shadow: 1px -1px 0 0 #eee inset;
-    /* TODO: revisit */ }
+    box-shadow: 1px 0 0 0 #eee inset;
+    border-bottom: 1px solid #eee; }
   .react-timeline .timebar-key {
-    height: 40px;
+    height: 41px;
     padding-right: 20px;
     line-height: 40px;
     text-align: right;
     font-weight: bold;
-    box-shadow: 0 -1px 0 0 #eee inset; }
+    border-bottom: 1px solid #eee; }
   .react-timeline .timeline {
     overflow-x: scroll;
     padding-top: 50px; }
@@ -136,10 +144,9 @@
     position: relative; }
   .react-timeline .track__elements {
     position: relative;
-    height: 60px;
+    height: 61px;
     background: #fff;
-    box-shadow: 0 -1px 0 0 #eee inset;
-    /* TODO: revisit */ }
+    border-bottom: 1px solid #eee; }
   .react-timeline .track__element {
     position: absolute;
     height: 40px;
@@ -147,15 +154,14 @@
   .react-timeline .track-key__entry {
     position: relative;
     overflow: hidden;
-    height: 60px;
+    height: 61px;
     padding-right: 20px;
     line-height: 60px;
     white-space: nowrap;
     text-overflow: ellipsis;
     font-weight: bold;
     text-align: left;
-    box-shadow: 0 -1px 0 0 #eee inset;
-    /* TODO: revisit */ }
+    border-bottom: 1px solid #eee; }
   .react-timeline .track-keys > .track-key >
 .track-key__entry {
     padding-left: 20px; }

@@ -4,9 +4,9 @@
 
 .track__elements {
   position: relative;
-  height: $react-timeline-track-height;
+  height: $react-timeline-track-height + $react-timeline-border-width;
   background: #fff;
-  box-shadow: 0 -1px 0 0 #eee inset; /* TODO: revisit */
+  border-bottom: $react-timeline-border-width solid #eee;
 }
 
 .track__element {

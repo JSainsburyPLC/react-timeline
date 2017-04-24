@@ -1,8 +1,8 @@
 .timebar-key {
-  height: $react-timeline-header-row-height;
+  height: $react-timeline-header-row-height + $react-timeline-border-width;
   padding-right: $react-timeline-sidebar-key-indent-width;
   line-height: $react-timeline-header-row-height;
   text-align: right;
   font-weight: bold;
-  box-shadow: 0 -1px 0 0 $react-timeline-sidebar-separator-color inset;
+  border-bottom: 1px solid $react-timeline-sidebar-separator-color;
 }

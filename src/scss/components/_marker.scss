@@ -4,7 +4,7 @@
   top: 0;
   bottom: 0;
   margin-left: -($react-timeline-marker-line-width / 2);
-  border-left: $react-timeline-marker-line-width dotted;
+  border-left: $react-timeline-marker-line-width solid;
   opacity: 0;
 }
 
