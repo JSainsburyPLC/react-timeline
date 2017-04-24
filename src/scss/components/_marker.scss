@@ -6,11 +6,13 @@
   margin-left: -($react-timeline-marker-line-width / 2);
   border-left: $react-timeline-marker-line-width solid;
   opacity: 0;
+  pointer-events: none;
 }
 
 .marker.is-visible {
   opacity: 1;
 }
+
 
 .marker--now {
   color: $react-timeline-marker-now-background-color;
@@ -26,6 +28,11 @@
     $react-timeline-marker-pointer-background-color,
     $react-timeline-marker-line-transparency
   );
+}
+
+.marker--pointer.is-highlighted {
+  color: darken($react-timeline-marker-pointer-background-color, 15%);
+  border-color: rgba(darken($react-timeline-marker-pointer-background-color, 1), 15%);
 }
 
 .marker__label {

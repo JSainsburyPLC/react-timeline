@@ -76,15 +76,19 @@
     bottom: 0;
     margin-left: -1px;
     border-left: 2px solid;
-    opacity: 0; }
+    opacity: 0;
+    pointer-events: none; }
   .react-timeline .marker.is-visible {
     opacity: 1; }
   .react-timeline .marker--now {
     color: #ff007f;
     border-color: rgba(255, 0, 127, 0.5); }
   .react-timeline .marker--pointer {
-    color: #646464;
-    border-color: rgba(100, 100, 100, 0.5); }
+    color: #888;
+    border-color: rgba(136, 136, 136, 0.5); }
+  .react-timeline .marker--pointer.is-highlighted {
+    color: #626262;
+    border-color: #858585; }
   .react-timeline .marker__label {
     position: absolute;
     bottom: 100%;
