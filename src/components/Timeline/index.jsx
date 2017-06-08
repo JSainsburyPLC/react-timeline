@@ -7,6 +7,7 @@ import NowMarker from './Marker/Now'
 import PointerMarker from './Marker/Pointer'
 
 import getMouseX from '../../utils/getMouseX'
+import buildGridStyle from '../../utils/buildGridStyle'
 import { propTypeTimebar } from '../../propTypes'
 
 class Timeline extends Component {
@@ -70,7 +71,9 @@ class Timeline extends Component {
           width={time.timelineWidth}
           sticky={sticky}
         />
-        <Body time={time} tracks={tracks} clickElement={clickElement} />
+        <div style={buildGridStyle(time, timebar[2])}>
+          <Body time={time} tracks={tracks} clickElement={clickElement} />
+        </div>
       </div>
     )
   }
