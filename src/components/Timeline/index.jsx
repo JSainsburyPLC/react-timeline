@@ -70,7 +70,7 @@ class Timeline extends Component {
           width={time.timelineWidth}
           sticky={sticky}
         />
-        <Body time={time} tracks={tracks} clickElement={clickElement} />
+        <Body time={time} timebar={timebar} tracks={tracks} clickElement={clickElement} />
       </div>
     )
   }
