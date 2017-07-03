@@ -44,8 +44,7 @@ class Timeline extends Component {
       time,
       timebar,
       tracks,
-      sticky,
-      clickElement
+      sticky
     } = this.props
     const {
       pointerDate,
@@ -73,7 +72,7 @@ class Timeline extends Component {
           width={time.timelineWidth}
           sticky={sticky}
         />
-        <Body time={time} grid={grid} tracks={tracks} clickElement={clickElement} />
+        <Body time={time} grid={grid} tracks={tracks} />
       </div>
     )
   }
@@ -86,8 +85,7 @@ Timeline.propTypes = {
   }).isRequired,
   timebar: propTypeTimebar.isRequired,
   tracks: PropTypes.arrayOf(PropTypes.shape({})),
-  sticky: PropTypes.shape({}),
-  clickElement: PropTypes.func
+  sticky: PropTypes.shape({})
 }
 
 export default Timeline

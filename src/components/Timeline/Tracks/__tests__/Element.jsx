@@ -34,11 +34,9 @@ describe('<Element />', () => {
 
   describe('clickElement', () => {
     it('renders with a cursor pointer style if callback is passed', () => {
-      const props = {
-        ...defaultProps,
-        clickElement: jest.fn()
-      }
-      const wrapper = shallow(<Element {...props} />)
+      const props = { ...defaultProps }
+      const context = { clickElement: jest.fn() }
+      const wrapper = shallow(<Element {...props} />, { context })
       expect(wrapper.prop('style')).toMatchObject({ cursor: 'pointer' })
     })
 
@@ -49,8 +47,9 @@ describe('<Element />', () => {
 
     it('gets called with props when clicked', () => {
       const clickElement = jest.fn()
-      const props = { ...defaultProps, clickElement }
-      const wrapper = shallow(<Element {...props} />)
+      const props = { ...defaultProps }
+      const context = { clickElement }
+      const wrapper = shallow(<Element {...props} />, { context })
       expect(clickElement).toHaveBeenCalledTimes(0)
 
       wrapper.simulate('click')

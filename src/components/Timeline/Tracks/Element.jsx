@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 
 import BasicElement from '../../Elements/Basic'
 
-const Element = (props) => {
-  const { time, style, id, title, start, end, tooltip, classes, clickElement } = props
+const Element = (props, context) => {
+  const { time, style, id, title, start, end, tooltip, classes } = props
+  const { clickElement } = context
   const handleClick = () => {
     clickElement(props)
   }
@@ -40,7 +41,10 @@ Element.propTypes = {
   title: PropTypes.string,
   start: PropTypes.instanceOf(Date).isRequired,
   end: PropTypes.instanceOf(Date).isRequired,
-  tooltip: PropTypes.string,
+  tooltip: PropTypes.string
+}
+
+Element.contextTypes = {
   clickElement: PropTypes.func
 }
 

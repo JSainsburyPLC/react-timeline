@@ -113,7 +113,7 @@ class StickyLayout extends PureComponent {
   }
 
   render() {
-    const { isOpen, tracks, now, time, timebar, toggleTrackOpen, clickElement } = this.props
+    const { isOpen, tracks, now, time, timebar, toggleTrackOpen } = this.props
     const {
       isSticky,
       headerHeight,
@@ -138,7 +138,6 @@ class StickyLayout extends PureComponent {
               time={time}
               timebar={timebar}
               tracks={tracks}
-              clickElement={clickElement}
               sticky={{
                 isSticky,
                 setHeaderHeight: this.setHeaderHeight,

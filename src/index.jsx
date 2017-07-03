@@ -19,7 +19,8 @@ const basePropTypes = {
   isOpen: PropTypes.bool,
   toggleOpen: PropTypes.func,
   zoomIn: PropTypes.func,
-  zoomOut: PropTypes.func
+  zoomOut: PropTypes.func,
+  clickElement: PropTypes.func
 }
 
 const timelinePropTypes = {
@@ -27,7 +28,6 @@ const timelinePropTypes = {
   tracks: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   now: PropTypes.instanceOf(Date),
   toggleTrackOpen: PropTypes.func,
-  clickElement: PropTypes.func,
   ...basePropTypes
 }
 
@@ -37,6 +37,11 @@ class Base extends Component {
     this.state = {
       time: createTime(props.scale)
     }
+  }
+
+  getChildContext() {
+    const { clickElement } = this.props
+    return { clickElement }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -69,6 +74,10 @@ class Base extends Component {
 
 Base.propTypes = basePropTypes
 
+Base.childContextTypes = {
+  clickElement: PropTypes.func
+}
+
 class Timeline extends Base {
   render() {
     const {
@@ -77,8 +86,7 @@ class Timeline extends Base {
       now,
       timebar,
       toggleTrackOpen,
-      scale,
-      clickElement
+      scale
     } = this.props
     return (
       <div className="rt">
@@ -91,7 +99,6 @@ class Timeline extends Base {
           toggleTrackOpen={toggleTrackOpen}
           time={this.state.time}
           isOpen={isOpen}
-          clickElement={clickElement}
         />
       </div>
     )
@@ -108,8 +115,7 @@ class StickyTimeline extends Base {
       now,
       timebar,
       toggleTrackOpen,
-      scale,
-      clickElement
+      scale
     } = this.props
     return (
       <div className="rt">
@@ -122,7 +128,6 @@ class StickyTimeline extends Base {
           toggleTrackOpen={toggleTrackOpen}
           time={this.state.time}
           isOpen={isOpen}
-          clickElement={clickElement}
         />
       </div>
     )
