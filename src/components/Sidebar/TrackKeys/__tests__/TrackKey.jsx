@@ -5,10 +5,45 @@ import TrackKey from '../TrackKey'
 import TrackKeys from '../'
 
 describe('<TrackKey />', () => {
-  it('renders a link if passed', () => {
-    const track = { link: 'test-url', title: 'test-title' }
-    const wrapper = shallow(<TrackKey track={track} />)
-    expect(wrapper.find('[href="test-url"]').text()).toBe('link')
+  describe('link button', () => {
+    const getButton = node => node.find('.rt-track-key__button')
+
+    it('renders a button if "hasButton" is true and "clickTrackButton" exists', () => {
+      const track = { title: 'test', isOpen: true, hasButton: true }
+      const context = { clickTrackButton: jest.fn() }
+
+      const wrapper = shallow(<TrackKey track={track} />, { context })
+      expect(getButton(wrapper).exists()).toBe(true)
+    })
+
+    it('does not render when "hasButton" is false', () => {
+      const track = { title: 'test', isOpen: true }
+      const context = { clickTrackButton: jest.fn() }
+
+      const wrapper = shallow(<TrackKey track={track} />, { context })
+      expect(getButton(wrapper).exists()).toBe(false)
+    })
+
+    it('does not render when "clickTrackButton" does not exist', () => {
+      const track = { title: 'test', isOpen: true, hasButton: true }
+      const context = {}
+
+      const wrapper = shallow(<TrackKey track={track} />, { context })
+      expect(getButton(wrapper).exists()).toBe(false)
+    })
+
+    it('calls "clickTrackButton" with the track when clicked', () => {
+      const track = { title: 'test', isOpen: true, hasButton: true }
+      const clickTrackButton = jest.fn()
+      const context = { clickTrackButton }
+
+      const wrapper = shallow(<TrackKey track={track} />, { context })
+      const button = getButton(wrapper)
+
+      expect(clickTrackButton).not.toBeCalled()
+      button.simulate('click')
+      expect(clickTrackButton).toBeCalledWith(track)
+    })
   })
 
   describe('toggle button', () => {

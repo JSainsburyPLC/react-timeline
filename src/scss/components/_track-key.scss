@@ -83,7 +83,7 @@
   background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjE2IDE1IDI0IDI1IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxnIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCI+PHBhdGggZD0iTTMyIDE2djI0aC04VjE2eiIvPjxwYXRoIGQ9Ik0xNiAyNGgyNHY4SDE2eiIvPjwvZz48L3N2Zz4=');
 }
 
-.rt-track-key__link {
+.rt-track-key__button {
   position: absolute;
   top: 0;
   right: 0;
@@ -91,6 +91,7 @@
   z-index: 1;
   width: $react-timelines-track-height;
   color: transparent;
+  background: transparent;
 
   &:hover,
   &:focus {

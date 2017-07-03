@@ -20,7 +20,8 @@ const basePropTypes = {
   toggleOpen: PropTypes.func,
   zoomIn: PropTypes.func,
   zoomOut: PropTypes.func,
-  clickElement: PropTypes.func
+  clickElement: PropTypes.func,
+  clickTrackButton: PropTypes.func
 }
 
 const timelinePropTypes = {
@@ -40,8 +41,8 @@ class Base extends Component {
   }
 
   getChildContext() {
-    const { clickElement } = this.props
-    return { clickElement }
+    const { clickElement, clickTrackButton } = this.props
+    return { clickElement, clickTrackButton }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -75,7 +76,8 @@ class Base extends Component {
 Base.propTypes = basePropTypes
 
 Base.childContextTypes = {
-  clickElement: PropTypes.func
+  clickElement: PropTypes.func,
+  clickTrackButton: PropTypes.func
 }
 
 class Timeline extends Base {
