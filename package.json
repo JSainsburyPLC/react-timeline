@@ -1,6 +1,6 @@
 {
   "name": "react-timelines",
-  "version": "1.2.2",
+  "version": "1.3.1",
   "description": "React Timelines",
   "main": "lib/index.js",
   "scripts": {
