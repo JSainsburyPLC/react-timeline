@@ -29,6 +29,7 @@
   background: $react-timelines-text-color;
   color: white;
   transform: translateX(-50%) scale(0);
+  pointer-events: none;
 
   &::before {
     $size: 6px;
