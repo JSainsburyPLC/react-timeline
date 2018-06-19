@@ -83,7 +83,7 @@ describe('<Layout />', () => {
       expect(typeof listeners.scroll).toEqual('function')
 
       wrapper.instance().setHeaderHeight(50)
-      wrapper.instance().timeline.getBoundingClientRect = () => ({
+      wrapper.instance().timeline.current.getBoundingClientRect = () => ({
         top: -50,
         bottom: 100
       })
@@ -92,7 +92,7 @@ describe('<Layout />', () => {
         isSticky: true
       })
 
-      wrapper.instance().timeline.getBoundingClientRect = () => ({
+      wrapper.instance().timeline.current.getBoundingClientRect = () => ({
         top: 10,
         bottom: 100
       })
@@ -101,7 +101,7 @@ describe('<Layout />', () => {
         isSticky: false
       })
 
-      wrapper.instance().timeline.getBoundingClientRect = () => ({
+      wrapper.instance().timeline.current.getBoundingClientRect = () => ({
         top: -60,
         bottom: 20
       })

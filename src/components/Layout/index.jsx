@@ -12,6 +12,11 @@ const noop = () => {}
 class Layout extends PureComponent {
   constructor(props) {
     super(props)
+
+    this.timeline = React.createRef()
+    this.layout = React.createRef()
+    this.sidebar = React.createRef()
+
     this.state = {
       isSticky: false,
       headerHeight: 0,
@@ -31,14 +36,13 @@ class Layout extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.enableSticky) {
-      if (this.state.isSticky) {
-        if (!prevState.isSticky) {
-          this.updateTimelineHeaderScroll()
-        }
-        if (this.state.scrollLeft !== prevState.scrollLeft) {
-          this.updateTimelineBodyScroll()
-        }
+    if (this.props.enableSticky && this.state.isSticky) {
+      if (!prevState.isSticky) {
+        this.updateTimelineHeaderScroll()
+      }
+
+      if (this.state.scrollLeft !== prevState.scrollLeft) {
+        this.updateTimelineBodyScroll()
       }
     }
 
@@ -61,16 +65,16 @@ class Layout extends PureComponent {
   scrollToNow = () => {
     const { time, scrollToNow, now } = this.props
     if (scrollToNow) {
-      this.timeline.scrollLeft = time.toX(now) - (0.5 * this.props.timelineViewportWidth)
+      this.timeline.current.scrollLeft = time.toX(now) - (0.5 * this.props.timelineViewportWidth)
     }
   }
 
   updateTimelineBodyScroll = () => {
-    this.timeline.scrollLeft = this.state.scrollLeft
+    this.timeline.current.scrollLeft = this.state.scrollLeft
   }
 
   updateTimelineHeaderScroll = () => {
-    const { scrollLeft } = this.timeline
+    const { scrollLeft } = this.timeline.current
     this.setState({ scrollLeft })
   }
 
@@ -84,7 +88,7 @@ class Layout extends PureComponent {
     raf(() => {
       const { headerHeight } = this.state
       const markerHeight = 0
-      const { top, bottom } = this.timeline.getBoundingClientRect()
+      const { top, bottom } = this.timeline.current.getBoundingClientRect()
       const isSticky = (top <= -markerHeight) && (bottom >= headerHeight)
       this.setState(() => ({ isSticky }))
     })
@@ -94,9 +98,9 @@ class Layout extends PureComponent {
     raf(this.updateTimelineHeaderScroll)
   }
 
-  calculateSidebarWidth = () => this.sidebar.offsetWidth + getNumericPropertyValue(this.layout, 'margin-left')
+  calculateSidebarWidth = () => this.sidebar.current.offsetWidth + getNumericPropertyValue(this.layout.current, 'margin-left')
 
-  calculateTimelineViewportWidth = () => this.timeline.offsetWidth
+  calculateTimelineViewportWidth = () => this.timeline.current.offsetWidth
 
   handleLayoutChange = (cb) => {
     const sidebarWidth = this.calculateSidebarWidth()
@@ -137,11 +141,11 @@ class Layout extends PureComponent {
     return (
       <div
         className={`rt-layout ${isOpen ? 'rt-is-open' : ''}`}
-        ref={(layout) => { this.layout = layout }}
+        ref={this.layout}
       >
         <div
           className="rt-layout__side"
-          ref={(sidebar) => { this.sidebar = sidebar }}
+          ref={this.sidebar}
         >
           <Sidebar
             timebar={timebar}
@@ -153,7 +157,7 @@ class Layout extends PureComponent {
         <div className="rt-layout__main">
           <div
             className="rt-layout__timeline"
-            ref={(timeline) => { this.timeline = timeline }}
+            ref={this.timeline}
             onScroll={isSticky ? this.handleScrollX : noop}
           >
             <Timeline

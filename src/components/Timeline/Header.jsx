@@ -6,13 +6,20 @@ import Timebar from './Timebar'
 const noop = () => {}
 
 class Header extends PureComponent {
+  constructor(props) {
+    super(props)
+
+    this.scroll = React.createRef()
+    this.timebar = React.createRef()
+  }
+
   componentDidMount() {
     const { sticky } = this.props
     if (sticky) {
-      sticky.setHeaderHeight(this.timebar.offsetHeight)
+      sticky.setHeaderHeight(this.timebar.current.offsetHeight)
       const { scrollLeft, isSticky } = sticky
       if (isSticky) {
-        this.scroll.scrollLeft = scrollLeft
+        this.scroll.current.scrollLeft = scrollLeft
       }
     }
   }
@@ -24,13 +31,13 @@ class Header extends PureComponent {
       const prevScrollLeft = prevProps.sticky.scrollLeft
       const prevIsSticky = prevProps.sticky.isSticky
       if (scrollLeft !== prevScrollLeft || isSticky !== prevIsSticky) {
-        this.scroll.scrollLeft = scrollLeft
+        this.scroll.current.scrollLeft = scrollLeft
       }
     }
   }
 
   handleScroll = () => {
-    this.props.sticky.handleHeaderScrollY(this.scroll.scrollLeft)
+    this.props.sticky.handleHeaderScrollY(this.scroll.current.scrollLeft)
   }
 
   render() {
@@ -54,9 +61,9 @@ class Header extends PureComponent {
           className={`rt-timeline__header ${isSticky ? 'rt-is-sticky' : ''}`}
           style={isSticky ? { width: viewportWidth, height: headerHeight } : {}}
         >
-          <div className="rt-timeline__header-scroll" ref={(scroll) => { this.scroll = scroll }} onScroll={isSticky ? this.handleScroll : noop}>
+          <div className="rt-timeline__header-scroll" ref={this.scroll} onScroll={isSticky ? this.handleScroll : noop}>
             <div
-              ref={(timebar) => { this.timebar = timebar }}
+              ref={this.timebar}
               style={isSticky ? { width } : {}}
             >
               <Timebar time={time} rows={rows} />
