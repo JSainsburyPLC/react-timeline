@@ -1,6 +1,6 @@
 {
   "name": "react-timelines",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "React Timelines",
   "main": "lib/index.js",
   "scripts": {
@@ -42,7 +42,7 @@
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-2": "^6.22.0",
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "npm:enzyme-react-adapter-future",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.12.0",

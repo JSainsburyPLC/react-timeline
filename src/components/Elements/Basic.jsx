@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { getDayMonth } from '../../utils/formatDate'
+
 import createClasses from '../../utils/classes'
+import Tooltip from './Tooltip'
+import Viewport from '../Contexts/Viewport'
 
 const buildDataAttributes = (attributes = {}) => {
   const value = {}
@@ -22,20 +24,19 @@ const Basic = ({
     <div className="rt-element__content" aria-hidden="true">
       <span className="rt-element__title">{ title }</span>
     </div>
-    <div className="rt-element__tooltip">
+    <Viewport.Consumer>
       {
-        tooltip
-        // eslint-disable-next-line react/no-danger
-        ? <div dangerouslySetInnerHTML={{ __html: tooltip.split('\n').join('<br>') }} />
-        : (
-          <div>
-            <div>{title}</div>
-            <div><strong>Start</strong> {getDayMonth(start)}</div>
-            <div><strong>End</strong> {getDayMonth(end)}</div>
-          </div>
+        viewport => (
+          <Tooltip
+            title={title}
+            start={start}
+            end={end}
+            tooltip={tooltip}
+            viewport={viewport}
+          />
         )
       }
-    </div>
+    </Viewport.Consumer>
   </div>
 )
 

@@ -17,6 +17,8 @@
   text-overflow: ellipsis;
 }
 
+$tooltip-size: 6px;
+
 .rt-element__tooltip {
   position: absolute;
   bottom: 100%;
@@ -28,25 +30,35 @@
   text-align: left;
   background: $react-timelines-text-color;
   color: white;
-  transform: translateX(-50%) scale(0);
+  transform: translateX(-50%);
+  opacity: 0;
   pointer-events: none;
 
   &::before {
-    $size: 6px;
+    $tooltip-size: 6px;
     position: absolute;
     top: 100%;
     left: 50%;
-    border-top: $size solid $react-timelines-text-color;
-    border-right: $size solid transparent;
-    border-left: $size solid transparent;
+    border-top: $tooltip-size solid $react-timelines-text-color;
+    border-right: $tooltip-size solid transparent;
+    border-left: $tooltip-size solid transparent;
     transform: translateX(-50%);
     content: ' ';
   }
 }
 
+.rt-element__tooltip--left::before {
+  left: $tooltip-size;
+}
+
+.rt-element__tooltip--right::before {
+  left: 100%;
+  margin-left: -$tooltip-size;
+}
+
 .rt-element:hover > .rt-element__tooltip,
 .rt-element:focus > .rt-element__tooltip {
   $delay: 0.3s;
-  transform: translateX(-50%) scale(1);
-  transition: transform 0s $delay;
+  opacity: 1;
+  transition: opacity 0s $delay;
 }

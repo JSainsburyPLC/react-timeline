@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount, shallow } from 'enzyme'
 
 import Basic from '../Basic'
 
@@ -19,14 +19,14 @@ describe('<Basic />', () => {
     it('renders the tooltip value if it exists', () => {
       const tooltip = 'Test tooltip'
       const props = { ...defaultProps, tooltip }
-      const wrapper = shallow(<Basic {...props} />)
+      const wrapper = mount(<Basic {...props} />)
       expect(getTooltip(wrapper).html()).toMatch('Test tooltip')
     })
 
     it('handles multiline tooltips', () => {
       const tooltip = 'Test\ntooltip'
       const props = { ...defaultProps, tooltip }
-      const wrapper = shallow(<Basic {...props} />)
+      const wrapper = mount(<Basic {...props} />)
       expect(getTooltip(wrapper).html()).toMatch('Test<br>tooltip')
     })
 
@@ -38,7 +38,7 @@ describe('<Basic />', () => {
       const props = {
         ...defaultProps, tooltip, title, start, end
       }
-      const wrapper = shallow(<Basic {...props} />)
+      const wrapper = mount(<Basic {...props} />)
       expect(getTooltip(wrapper).text()).toMatch('TEST')
       expect(getTooltip(wrapper).text()).toMatch('Start 20 Mar')
       expect(getTooltip(wrapper).text()).toMatch('End 15 Apr')
@@ -46,7 +46,7 @@ describe('<Basic />', () => {
 
     it('can take an optional list of classnames to add to the parent', () => {
       const props = { ...defaultProps, classes: ['foo', 'bar'] }
-      const wrapper = shallow(<Basic {...props} />)
+      const wrapper = mount(<Basic {...props} />)
       expect(wrapper.find('.rt-element').hasClass('foo')).toBe(true)
       expect(wrapper.find('.rt-element').hasClass('bar')).toBe(true)
     })
