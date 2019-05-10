@@ -22,7 +22,7 @@ const Track = ({ time, elements, isOpen, tracks, clickElement }) => (
     </div>
     {
       isOpen && tracks && tracks.length > 0 && (
-        <Tracks time={time} tracks={tracks} />
+        <Tracks time={time} tracks={tracks} clickElement={clickElement} />
       )
     }
   </div>
