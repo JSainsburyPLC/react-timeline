@@ -11,7 +11,7 @@ const TrackKey = ({ track, toggleOpen, clickTrackButton }) => {
     hasButton,
     sideComponent
   } = track
-  const isExpandable = isOpen !== undefined
+  const isExpandable = (isOpen !== undefined) && tracks && (tracks !== undefined) && tracks.length > 0
 
   const buildSideComponent = () => {
     if (sideComponent) {
