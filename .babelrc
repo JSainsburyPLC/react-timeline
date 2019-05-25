@@ -1,9 +1,8 @@
 {
   "presets": [
-    "stage-2",
-    "react",
+    "@babel/preset-react",
     [
-      "env", {
+      "@babel/env", {
         "targets": {
           "browsers": ["last 2 versions", "ie 9-11"],
           "node": "current"
@@ -13,7 +12,7 @@
   ],
   "plugins": [
     "add-module-exports",
-    "transform-runtime",
-    "transform-class-properties"
+    "@babel/transform-runtime",
+    "@babel/plugin-proposal-class-properties"
   ]
 }
