@@ -38,7 +38,7 @@
   "author": "JSainsburyPLC",
   "license": "MIT",
   "dependencies": {
-    "prop-types": "^15.6.1"
+    "prop-types": "^15.7.2"
   },
   "files": [
     "src",
@@ -63,10 +63,10 @@
     "eslint-plugin-react": "^7.13.0",
     "jest": "^24.8.0",
     "node-sass": "^4.9.0",
-    "react": "^16.4.1",
+    "react": "^16.8.6",
     "react-addons-test-utils": "^15.4.2",
-    "react-dom": "^16.4.1",
-    "rimraf": "^2.6.1"
+    "react-dom": "^16.8.6",
+    "rimraf": "^2.6.3"
   },
   "peerDependencies": {
     "react": ">=16",
