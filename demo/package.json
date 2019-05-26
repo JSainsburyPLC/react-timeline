@@ -10,7 +10,7 @@
     "fix": "eslint ./src --fix",
     "deploy": "npm run build && gh-pages -d ./dist"
   },
-  "author": "Will Bamford",
+  "author": "JSainsburyPLC",
   "license": "MIT",
   "private": false,
   "devDependencies": {
