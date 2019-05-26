@@ -16,9 +16,9 @@ const Controls = ({
 }) => (
   <div className="rt-controls">
     <div className="rt-controls__content">
-      { toggleOpen && <Toggle isOpen={isOpen} toggleOpen={toggleOpen} /> }
-      { zoomIn && <ZoomIn zoomIn={zoomIn} zoomMax={zoomMax} zoom={zoom} /> }
-      { zoomOut && <ZoomOut zoomOut={zoomOut} zoomMin={zoomMin} zoom={zoom} /> }
+      {toggleOpen && <Toggle isOpen={isOpen} toggleOpen={toggleOpen} />}
+      {zoomIn && <ZoomIn zoomIn={zoomIn} zoomMax={zoomMax} zoom={zoom} />}
+      {zoomOut && <ZoomOut zoomOut={zoomOut} zoomMin={zoomMin} zoom={zoom} />}
     </div>
   </div>
 )

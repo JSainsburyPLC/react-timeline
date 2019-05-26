@@ -20,7 +20,8 @@ class Timeline extends Component {
   }
 
   handleMouseMove = (e) => {
-    this.setState({ pointerDate: this.props.time.fromX(getMouseX(e)) })
+    const { time } = this.props
+    this.setState({ pointerDate: time.fromX(getMouseX(e)) })
   }
 
   handleMouseLeave = () => {
@@ -52,13 +53,15 @@ class Timeline extends Component {
     return (
       <div className="rt-timeline" style={{ width: time.timelineWidthStyle }}>
         { now && <NowMarker now={now} visible time={time} /> }
-        { pointerDate &&
+        { pointerDate
+          && (
           <PointerMarker
             date={pointerDate}
             time={time}
             visible={pointerVisible}
             highlighted={pointerHighlighted}
           />
+          )
         }
         <Header
           time={time}

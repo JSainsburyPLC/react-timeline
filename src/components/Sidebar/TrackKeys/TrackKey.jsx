@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import TrackKeys from './'
+import TrackKeys from '.'
 
 const TrackKey = ({ track, toggleOpen, clickTrackButton }) => {
   const {
@@ -16,9 +16,9 @@ const TrackKey = ({ track, toggleOpen, clickTrackButton }) => {
   const buildSideComponent = () => {
     if (sideComponent) {
       return React.cloneElement(sideComponent)
-    } else if (hasButton && clickTrackButton) {
+    } if (hasButton && clickTrackButton) {
       const handleClick = () => clickTrackButton(track)
-      return <button className="rt-track-key__side-button" onClick={handleClick} />
+      return <button className="rt-track-key__side-button" onClick={handleClick} type="button" />
     }
 
     return null
@@ -27,20 +27,23 @@ const TrackKey = ({ track, toggleOpen, clickTrackButton }) => {
   return (
     <li className="rt-track-key">
       <div className="rt-track-key__entry">
-        { isExpandable &&
+        { isExpandable
+          && (
           <button
             title="Expand track"
             className={`rt-track-key__toggle ${isOpen ? 'rt-track-key__toggle--close' : 'rt-track-key__toggle--open'}`}
             onClick={() => toggleOpen(track)}
+            type="button"
           >
             { isOpen ? 'Close' : 'Open' }
           </button>
+          )
         }
         <span className="rt-track-key__title">{title}</span>
         { buildSideComponent() }
       </div>
-      { isOpen && tracks && tracks.length > 0 &&
-        <TrackKeys tracks={tracks} toggleOpen={toggleOpen} />
+      { isOpen && tracks && tracks.length > 0
+        && <TrackKeys tracks={tracks} toggleOpen={toggleOpen} />
       }
     </li>
   )

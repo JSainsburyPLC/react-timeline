@@ -26,14 +26,22 @@ const Basic = ({
       {
         tooltip
         // eslint-disable-next-line react/no-danger
-        ? <div dangerouslySetInnerHTML={{ __html: tooltip.split('\n').join('<br>') }} />
-        : (
-          <div>
-            <div>{title}</div>
-            <div><strong>Start</strong> {getDayMonth(start)}</div>
-            <div><strong>End</strong> {getDayMonth(end)}</div>
-          </div>
-        )
+          ? <div dangerouslySetInnerHTML={{ __html: tooltip.split('\n').join('<br>') }} />
+          : (
+            <div>
+              <div>{title}</div>
+              <div>
+                <strong>Start</strong>
+                {' '}
+                {getDayMonth(start)}
+              </div>
+              <div>
+                <strong>End</strong>
+                {' '}
+                {getDayMonth(end)}
+              </div>
+            </div>
+          )
       }
     </div>
   </div>

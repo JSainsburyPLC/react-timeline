@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Controls from '../'
+import Controls from '..'
 import Toggle from '../Toggle'
 
 const createProps = ({

@@ -6,6 +6,7 @@ const ZoomOut = ({ zoom, zoomMin, zoomOut }) => (
     className="rt-controls__button rt-controls__button--zoom-out"
     disabled={zoomMin && zoom <= zoomMin}
     onClick={zoomOut}
+    type="button"
   >
     <span className="rt-visually-hidden">Zoom Out</span>
     <svg viewBox="1 1 59 59" xmlns="http://www.w3.org/2000/svg">

@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Timeline from '../'
+import Timeline from '..'
 import Controls from '../components/Controls'
 import Layout from '../components/Layout'
 

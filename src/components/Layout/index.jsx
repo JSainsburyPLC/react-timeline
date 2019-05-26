@@ -25,7 +25,9 @@ class Layout extends PureComponent {
   }
 
   componentDidMount() {
-    if (this.props.enableSticky) {
+    const { enableSticky } = this.props
+
+    if (enableSticky) {
       addListener('scroll', this.handleScrollY)
       this.updateTimelineHeaderScroll()
       this.updateTimelineBodyScroll()
@@ -36,23 +38,28 @@ class Layout extends PureComponent {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.enableSticky && this.state.isSticky) {
+    const { enableSticky, isOpen } = this.props
+    const { isSticky, scrollLeft } = this.state
+
+    if (enableSticky && isSticky) {
       if (!prevState.isSticky) {
         this.updateTimelineHeaderScroll()
       }
 
-      if (this.state.scrollLeft !== prevState.scrollLeft) {
+      if (scrollLeft !== prevState.scrollLeft) {
         this.updateTimelineBodyScroll()
       }
     }
 
-    if (this.props.isOpen !== prevProps.isOpen) {
+    if (isOpen !== prevProps.isOpen) {
       this.handleLayoutChange()
     }
   }
 
   componentWillUnmount() {
-    if (this.props.enableSticky) {
+    const { enableSticky } = this.props
+
+    if (enableSticky) {
       removeListener('scroll', this.handleScrollY)
       removeListener('resize', this.handleResize)
     }
@@ -63,14 +70,17 @@ class Layout extends PureComponent {
   }
 
   scrollToNow = () => {
-    const { time, scrollToNow, now } = this.props
+    const {
+      time, scrollToNow, now, timelineViewportWidth
+    } = this.props
     if (scrollToNow) {
-      this.timeline.current.scrollLeft = time.toX(now) - (0.5 * this.props.timelineViewportWidth)
+      this.timeline.current.scrollLeft = time.toX(now) - (0.5 * timelineViewportWidth)
     }
   }
 
   updateTimelineBodyScroll = () => {
-    this.timeline.current.scrollLeft = this.state.scrollLeft
+    const { scrollLeft } = this.state
+    this.timeline.current.scrollLeft = scrollLeft
   }
 
   updateTimelineHeaderScroll = () => {
@@ -103,18 +113,20 @@ class Layout extends PureComponent {
   calculateTimelineViewportWidth = () => this.timeline.current.offsetWidth
 
   handleLayoutChange = (cb) => {
-    const sidebarWidth = this.calculateSidebarWidth()
-    const timelineViewportWidth = this.calculateTimelineViewportWidth()
+    const { sidebarWidth, timelineViewportWidth, onLayoutChange } = this.props
+
+    const nextSidebarWidth = this.calculateSidebarWidth()
+    const nextTimelineViewportWidth = this.calculateTimelineViewportWidth()
     if (
-      sidebarWidth !== this.props.sidebarWidth ||
-      timelineViewportWidth !== this.props.timelineViewportWidth
+      nextSidebarWidth !== sidebarWidth
+      || nextTimelineViewportWidth !== timelineViewportWidth
     ) {
-      this.props.onLayoutChange(
+      onLayoutChange(
         {
           sidebarWidth: this.calculateSidebarWidth(),
           timelineViewportWidth: this.calculateTimelineViewportWidth()
         },
-        cb
+        cb,
       )
     }
   }

@@ -43,8 +43,7 @@ const create = ({
     }
   }
 
-  const fromX = x =>
-    new Date(start.getTime() + ((x / timelineWidth) * duration))
+  const fromX = x => new Date(start.getTime() + ((x / timelineWidth) * duration))
 
   return {
     timelineWidth,

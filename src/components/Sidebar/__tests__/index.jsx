@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Sidebar from '../'
+import Sidebar from '..'
 import Header from '../Header'
 import Body from '../Body'
 

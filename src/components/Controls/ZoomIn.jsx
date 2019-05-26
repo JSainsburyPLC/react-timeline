@@ -6,6 +6,7 @@ const ZoomIn = ({ zoom, zoomMax, zoomIn }) => (
     className="rt-controls__button rt-controls__button--zoom-in"
     disabled={zoomMax && zoom >= zoomMax}
     onClick={zoomIn}
+    type="button"
   >
     <span className="rt-visually-hidden"> Zoom In</span>
     <svg viewBox="1 1 59 59" xmlns="http://www.w3.org/2000/svg">

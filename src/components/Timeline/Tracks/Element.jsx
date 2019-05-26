@@ -5,7 +5,9 @@ import PropTypes from 'prop-types'
 import BasicElement from '../../Elements/Basic'
 
 const Element = (props) => {
-  const { time, style, title, start, end, classes, dataSet, tooltip, clickElement } = props
+  const {
+    time, style, title, start, end, classes, dataSet, tooltip, clickElement
+  } = props
 
   const handleClick = () => { clickElement(props) }
   const elementStyle = {

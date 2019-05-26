@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import PointerMarker from '../Pointer'
-import Marker from '../'
+import Marker from '..'
 import createTime from '../../../../utils/time'
 
 const time = createTime({

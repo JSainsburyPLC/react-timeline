@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { getDayMonth } from '../../../utils/formatDate'
-import Marker from './'
+import Marker from '.'
 
 const PointerMarker = ({
   time, date, visible, highlighted

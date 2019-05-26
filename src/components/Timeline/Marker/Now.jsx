@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import Marker from './'
+import Marker from '.'
 import { getDayMonth } from '../../../utils/formatDate'
 
 class NowMarker extends PureComponent {

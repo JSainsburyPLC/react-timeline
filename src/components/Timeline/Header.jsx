@@ -37,7 +37,8 @@ class Header extends PureComponent {
   }
 
   handleScroll = () => {
-    this.props.sticky.handleHeaderScrollY(this.scroll.current.scrollLeft)
+    const { sticky } = this.props
+    sticky.handleHeaderScrollY(this.scroll.current.scrollLeft)
   }
 
   render() {

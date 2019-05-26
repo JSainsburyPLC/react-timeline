@@ -24,6 +24,7 @@ const Toggle = ({ toggleOpen, isOpen }) => (
   <button
     className="rt-controls__button rt-controls__button--toggle"
     onClick={toggleOpen}
+    type="button"
   >
     <span className="rt-visually-hidden">{ isOpen ? 'Close' : 'Open' }</span>
     { isOpen ? <CloseSvg /> : <OpenSvg />}

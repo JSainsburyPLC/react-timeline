@@ -1,7 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 
-import Layout from '../'
+import Layout from '..'
 import Sidebar from '../../Sidebar'
 import Timeline from '../../Timeline'
 
@@ -44,12 +44,11 @@ const createProps = ({
 
 describe('<Layout />', () => {
   beforeEach(() => {
-    computedStyle.mockImplementation(node =>
-      ({
-        getPropertyValue(prop) {
-          return node.style[prop]
-        }
-      }))
+    computedStyle.mockImplementation(node => ({
+      getPropertyValue(prop) {
+        return node.style[prop]
+      }
+    }))
     raf.mockImplementation(fn => fn())
   })
 

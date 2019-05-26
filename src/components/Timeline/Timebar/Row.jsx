@@ -6,8 +6,7 @@ import Cell from './Cell'
 const Row = ({ time, cells, style }) => (
   <div className="rt-timebar__row" style={style}>
     {
-      cells.map(cell =>
-        <Cell key={cell.id} time={time} {...cell} />)
+      cells.map(cell => <Cell key={cell.id} time={time} {...cell} />)
     }
   </div>
 )

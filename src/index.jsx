@@ -20,18 +20,22 @@ class Timeline extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.scale !== this.props.scale) {
+    const { scale } = this.props
+    const { timelineViewportWidth } = this.state
+
+    if (nextProps.scale !== scale) {
       const time = createTime({
         ...nextProps.scale,
-        viewportWidth: this.state.timelineViewportWidth
+        viewportWidth: timelineViewportWidth
       })
       this.setState({ time })
     }
   }
 
   handleLayoutChange = ({ timelineViewportWidth, sidebarWidth }, cb) => {
+    const { scale } = this.props
     const time = createTime({
-      ...this.props.scale,
+      ...scale,
       viewportWidth: timelineViewportWidth
     })
     this.setState({

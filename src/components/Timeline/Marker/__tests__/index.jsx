@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Marker from '../'
+import Marker from '..'
 
 const createProps = ({
   x = 0,

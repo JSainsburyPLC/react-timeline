@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Tracks from '../'
+import Tracks from '..'
 import Track from '../Track'
 
 describe('<Tracks />', () => {

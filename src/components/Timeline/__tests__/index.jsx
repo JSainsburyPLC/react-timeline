@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Timeline from '../'
+import Timeline from '..'
 import Header from '../Header'
 import Body from '../Body'
 import NowMarker from '../Marker/Now'

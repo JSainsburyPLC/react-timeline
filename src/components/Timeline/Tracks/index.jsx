@@ -6,7 +6,9 @@ import Track from './Track'
 const Tracks = ({ time, tracks, clickElement }) => (
   <div className="rt-tracks">
     {
-      tracks.map(({ id, elements, isOpen, tracks: children }) => (
+      tracks.map(({
+        id, elements, isOpen, tracks: children
+      }) => (
         <Track
           key={id}
           time={time}

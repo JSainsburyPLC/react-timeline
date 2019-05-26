@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Timebar from '../'
+import Timebar from '..'
 import Row from '../Row'
 
 describe('<Timebar />', () => {

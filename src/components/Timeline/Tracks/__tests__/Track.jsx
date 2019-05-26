@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import Track from '../Track'
-import Tracks from '../'
+import Tracks from '..'
 import Element from '../Element'
 
 const createProps = ({

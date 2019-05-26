@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Tracks from './'
+import Tracks from '.'
 import Element from './Element'
 
-const Track = ({ time, elements, isOpen, tracks, clickElement }) => (
+const Track = ({
+  time, elements, isOpen, tracks, clickElement
+}) => (
   <div className="tr-track">
     <div className="rt-track__elements">
       {
