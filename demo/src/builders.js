@@ -10,7 +10,7 @@ import {
   MAX_ELEMENT_GAP,
   MAX_MONTH_SPAN,
   MIN_MONTH_SPAN,
-  MAX_NUM_OF_SUBTRACKS,
+  MAX_NUM_OF_SUBTRACKS
 } from './constants'
 
 import {
@@ -20,7 +20,7 @@ import {
   addMonthsToYear,
   addMonthsToYearAsDate,
   nextColor,
-  randomTitle,
+  randomTitle
 } from './utils'
 
 export const buildQuarterCells = () => {
@@ -35,7 +35,7 @@ export const buildQuarterCells = () => {
       id: `${s.year}-q${quarter}`,
       title: `Q${quarter} ${s.year}`,
       start: new Date(`${s.year}-${s.month}-01`),
-      end: new Date(`${e.year}-${e.month}-01`),
+      end: new Date(`${e.year}-${e.month}-01`)
     })
   }
   return v
@@ -51,7 +51,7 @@ export const buildMonthCells = () => {
       id: `m${startMonth}`,
       title: MONTH_NAMES[i % 12],
       start,
-      end,
+      end
     })
   }
   return v
@@ -63,7 +63,7 @@ export const buildTimebar = () => [
     title: 'Quarters',
     cells: buildQuarterCells(),
     style: {
-    },
+    }
   },
   {
     id: 'months',
@@ -71,12 +71,12 @@ export const buildTimebar = () => [
     cells: buildMonthCells(),
     useAsGrid: true,
     style: {
-    },
-  },
+    }
+  }
 ]
 
 export const buildElement = ({
-  trackId, start, end, i,
+  trackId, start, end, i
 }) => {
   const bgColor = nextColor()
   const color = colourIsLight(...hexToRgb(bgColor)) ? '#000000' : '#ffffff'
@@ -91,8 +91,8 @@ export const buildElement = ({
         color,
         borderRadius: '4px',
         boxShadow: '1px 1px 0px rgba(0, 0, 0, 0.25)',
-        textTransform: 'capitalize',
-      },
+        textTransform: 'capitalize'
+      }
     }
   )
 }
@@ -116,7 +116,7 @@ export const buildElements = (trackId) => {
     const start = addMonthsToYearAsDate(START_YEAR, month)
     const end = addMonthsToYearAsDate(START_YEAR, month + monthSpan)
     v.push(buildElement({
-      trackId, start, end, i,
+      trackId, start, end, i
     }))
     const gap = buildElementGap()
     month += monthSpan + gap
@@ -130,7 +130,7 @@ export const buildSubtrack = (trackId, subtrackId) => (
   {
     id: `track-${trackId}-${subtrackId}`,
     title: `Subtrack ${subtrackId}`,
-    elements: buildElements(subtrackId),
+    elements: buildElements(subtrackId)
   }
 )
 
@@ -145,7 +145,7 @@ export const buildTrack = (trackId) => {
       tracks,
       // hasButton: true,
       // link: 'www.google.com',
-      isOpen: false,
+      isOpen: false
     }
   )
 }

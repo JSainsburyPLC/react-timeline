@@ -21,7 +21,7 @@ const COLORS = [
   'FE7F2D',
   'FCCA46',
   'A1C181',
-  '579C87',
+  '579C87'
 ]
 
 export const randomColor = () => COLORS[Math.floor(Math.random() * COLORS.length)]
