@@ -23,7 +23,7 @@ const ZoomIn = ({ zoom, zoomMax, zoomIn }) => (
 ZoomIn.propTypes = {
   zoom: PropTypes.number.isRequired,
   zoomMax: PropTypes.number.isRequired,
-  zoomIn: PropTypes.func.isRequired
+  zoomIn: PropTypes.func.isRequired,
 }
 
 export default ZoomIn

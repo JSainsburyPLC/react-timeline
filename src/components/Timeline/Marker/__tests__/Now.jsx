@@ -10,9 +10,9 @@ const createProps = ({
   time = createTime({
     start: new Date(),
     end: new Date(),
-    zoom: 1
+    zoom: 1,
   }),
-  visible = true
+  visible = true,
 }) => ({ now, time, visible })
 
 describe('<NowMarker />', () => {
@@ -22,8 +22,8 @@ describe('<NowMarker />', () => {
       time: createTime({
         start: new Date('2016-01-01'),
         end: new Date('2018-01-10'),
-        zoom: 1
-      })
+        zoom: 1,
+      }),
     })
     const wrapper = shallow(<NowMarker {...props} />)
     expect(wrapper.find(Marker).prop('x')).toBe(366)
@@ -31,7 +31,7 @@ describe('<NowMarker />', () => {
 
   it('renders the formatted date for "now"', () => {
     const props = createProps({
-      now: new Date('2017-04-10')
+      now: new Date('2017-04-10'),
     })
     const wrapper = shallow(<NowMarker {...props} />)
     expect(wrapper.find('strong').text()).toBe('10 Apr')

@@ -49,7 +49,7 @@ class Header extends PureComponent {
       onLeave,
       width,
       timebar: rows,
-      sticky: { isSticky, headerHeight, viewportWidth } = {}
+      sticky: { isSticky, headerHeight, viewportWidth } = {},
     } = this.props
     return (
       <div
@@ -63,10 +63,7 @@ class Header extends PureComponent {
           style={isSticky ? { width: viewportWidth, height: headerHeight } : {}}
         >
           <div className="rt-timeline__header-scroll" ref={this.scroll} onScroll={isSticky ? this.handleScroll : noop}>
-            <div
-              ref={this.timebar}
-              style={isSticky ? { width } : {}}
-            >
+            <div ref={this.timebar} style={isSticky ? { width } : {}}>
               <Timebar time={time} rows={rows} />
             </div>
           </div>
@@ -78,10 +75,12 @@ class Header extends PureComponent {
 
 Header.propTypes = {
   time: PropTypes.shape({}).isRequired,
-  timebar: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string
-  }).isRequired).isRequired,
+  timebar: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string,
+    }).isRequired
+  ).isRequired,
   onMove: PropTypes.func.isRequired,
   onEnter: PropTypes.func.isRequired,
   onLeave: PropTypes.func.isRequired,
@@ -91,8 +90,8 @@ Header.propTypes = {
     setHeaderHeight: PropTypes.func.isRequired,
     viewportWidth: PropTypes.number.isRequired,
     handleHeaderScrollY: PropTypes.func.isRequired,
-    scrollLeft: PropTypes.number.isRequired
-  })
+    scrollLeft: PropTypes.number.isRequired,
+  }),
 }
 
 export default Header

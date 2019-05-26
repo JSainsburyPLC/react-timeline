@@ -20,7 +20,7 @@ class Layout extends PureComponent {
     this.state = {
       isSticky: false,
       headerHeight: 0,
-      scrollLeft: 0
+      scrollLeft: 0,
     }
   }
 
@@ -65,16 +65,14 @@ class Layout extends PureComponent {
     }
   }
 
-  setHeaderHeight = (headerHeight) => {
+  setHeaderHeight = headerHeight => {
     this.setState({ headerHeight })
   }
 
   scrollToNow = () => {
-    const {
-      time, scrollToNow, now, timelineViewportWidth
-    } = this.props
+    const { time, scrollToNow, now, timelineViewportWidth } = this.props
     if (scrollToNow) {
-      this.timeline.current.scrollLeft = time.toX(now) - (0.5 * timelineViewportWidth)
+      this.timeline.current.scrollLeft = time.toX(now) - 0.5 * timelineViewportWidth
     }
   }
 
@@ -88,7 +86,7 @@ class Layout extends PureComponent {
     this.setState({ scrollLeft })
   }
 
-  handleHeaderScrollY = (scrollLeft) => {
+  handleHeaderScrollY = scrollLeft => {
     raf(() => {
       this.setState({ scrollLeft })
     })
@@ -99,7 +97,7 @@ class Layout extends PureComponent {
       const { headerHeight } = this.state
       const markerHeight = 0
       const { top, bottom } = this.timeline.current.getBoundingClientRect()
-      const isSticky = (top <= -markerHeight) && (bottom >= headerHeight)
+      const isSticky = top <= -markerHeight && bottom >= headerHeight
       this.setState(() => ({ isSticky }))
     })
   }
@@ -108,25 +106,23 @@ class Layout extends PureComponent {
     raf(this.updateTimelineHeaderScroll)
   }
 
-  calculateSidebarWidth = () => this.sidebar.current.offsetWidth + getNumericPropertyValue(this.layout.current, 'margin-left')
+  calculateSidebarWidth = () =>
+    this.sidebar.current.offsetWidth + getNumericPropertyValue(this.layout.current, 'margin-left')
 
   calculateTimelineViewportWidth = () => this.timeline.current.offsetWidth
 
-  handleLayoutChange = (cb) => {
+  handleLayoutChange = cb => {
     const { sidebarWidth, timelineViewportWidth, onLayoutChange } = this.props
 
     const nextSidebarWidth = this.calculateSidebarWidth()
     const nextTimelineViewportWidth = this.calculateTimelineViewportWidth()
-    if (
-      nextSidebarWidth !== sidebarWidth
-      || nextTimelineViewportWidth !== timelineViewportWidth
-    ) {
+    if (nextSidebarWidth !== sidebarWidth || nextTimelineViewportWidth !== timelineViewportWidth) {
       onLayoutChange(
         {
           sidebarWidth: this.calculateSidebarWidth(),
-          timelineViewportWidth: this.calculateTimelineViewportWidth()
+          timelineViewportWidth: this.calculateTimelineViewportWidth(),
         },
-        cb,
+        cb
       )
     }
   }
@@ -144,23 +140,13 @@ class Layout extends PureComponent {
       sidebarWidth,
       timelineViewportWidth,
       clickElement,
-      clickTrackButton
+      clickTrackButton,
     } = this.props
 
-    const {
-      isSticky,
-      headerHeight,
-      scrollLeft
-    } = this.state
+    const { isSticky, headerHeight, scrollLeft } = this.state
     return (
-      <div
-        className={`rt-layout ${isOpen ? 'rt-is-open' : ''}`}
-        ref={this.layout}
-      >
-        <div
-          className="rt-layout__side"
-          ref={this.sidebar}
-        >
+      <div className={`rt-layout ${isOpen ? 'rt-is-open' : ''}`} ref={this.layout}>
+        <div className="rt-layout__side" ref={this.sidebar}>
           <Sidebar
             timebar={timebar}
             tracks={tracks}
@@ -170,11 +156,7 @@ class Layout extends PureComponent {
           />
         </div>
         <div className="rt-layout__main">
-          <div
-            className="rt-layout__timeline"
-            ref={this.timeline}
-            onScroll={isSticky ? this.handleScrollX : noop}
-          >
+          <div className="rt-layout__timeline" ref={this.timeline} onScroll={isSticky ? this.handleScrollX : noop}>
             <Timeline
               now={now}
               time={time}
@@ -186,7 +168,7 @@ class Layout extends PureComponent {
                 viewportWidth: timelineViewportWidth,
                 handleHeaderScrollY: this.handleHeaderScrollY,
                 headerHeight,
-                scrollLeft
+                scrollLeft,
               }}
               clickElement={clickElement}
             />
@@ -210,7 +192,7 @@ Layout.propTypes = {
   sidebarWidth: PropTypes.number,
   timelineViewportWidth: PropTypes.number,
   clickElement: PropTypes.func,
-  clickTrackButton: PropTypes.func
+  clickTrackButton: PropTypes.func,
 }
 
 export default Layout

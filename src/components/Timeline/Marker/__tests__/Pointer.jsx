@@ -8,7 +8,7 @@ import createTime from '../../../../utils/time'
 const time = createTime({
   start: new Date('2017-01-01'),
   end: new Date('2018-01-01'),
-  zoom: 1
+  zoom: 1,
 })
 
 describe('<PointerMarker />', () => {
@@ -16,7 +16,7 @@ describe('<PointerMarker />', () => {
     time,
     date: new Date('2017-01-02'),
     visible: false,
-    highlighted: false
+    highlighted: false,
   }
 
   it('renders <Marker /> passing down horizontal position', () => {

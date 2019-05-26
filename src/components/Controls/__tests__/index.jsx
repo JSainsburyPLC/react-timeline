@@ -10,7 +10,7 @@ const createProps = ({
   zoomOut = jest.fn(),
   zoom = 2,
   zoomMin = 1,
-  zoomMax = 10
+  zoomMax = 10,
 } = {}) => ({
   isOpen,
   toggleOpen,
@@ -18,7 +18,7 @@ const createProps = ({
   zoomOut,
   zoom,
   zoomMin,
-  zoomMax
+  zoomMax,
 })
 
 describe('<Controls />', () => {

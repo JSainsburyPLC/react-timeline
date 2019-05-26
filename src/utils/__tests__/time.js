@@ -6,7 +6,7 @@ describe('createTime', () => {
       const { timelineWidth } = createTime({
         start: new Date('2017-01-01T00:00:00.000Z'),
         end: new Date('2018-01-01T00:00:00.000Z'),
-        zoom: 10 // 10px === 1 day
+        zoom: 10, // 10px === 1 day
       })
       expect(timelineWidth).toBe(3650)
     })
@@ -17,7 +17,7 @@ describe('createTime', () => {
       const { timelineWidth } = createTime({
         start: newYear,
         end: newYearMidday,
-        zoom: 100
+        zoom: 100,
       })
       expect(timelineWidth).toBe(50)
     })
@@ -29,7 +29,7 @@ describe('createTime', () => {
         start: newYear,
         end: newYearMidday,
         zoom: 1,
-        viewportWidth: 1000
+        viewportWidth: 1000,
       })
       expect(timelineWidth).toBe(1000)
     })
@@ -42,7 +42,7 @@ describe('createTime', () => {
         end: newYearMidday,
         zoom: 1,
         viewportWidth: 500,
-        minWidth: 800
+        minWidth: 800,
       })
       expect(timelineWidth).toBe(800)
     })

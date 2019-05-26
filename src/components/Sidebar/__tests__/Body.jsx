@@ -8,7 +8,7 @@ describe('<Body />', () => {
   it('renders <TrackKeys />', () => {
     const props = {
       tracks: [{}],
-      toggleTrackOpen: jest.fn()
+      toggleTrackOpen: jest.fn(),
     }
     const wrapper = shallow(<Body {...props} />)
     expect(wrapper.find(TrackKeys).exists()).toBe(true)

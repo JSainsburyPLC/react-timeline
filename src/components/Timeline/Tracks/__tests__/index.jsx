@@ -8,10 +8,7 @@ describe('<Tracks />', () => {
   it('renders <Track /> components', () => {
     const props = {
       time: {},
-      tracks: [
-        { id: '1', elements: [] },
-        { id: '2', elements: [] }
-      ]
+      tracks: [{ id: '1', elements: [] }, { id: '2', elements: [] }],
     }
     const wrapper = shallow(<Tracks {...props} />)
     expect(wrapper.find(Track)).toHaveLength(2)

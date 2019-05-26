@@ -5,15 +5,7 @@ import Toggle from './Toggle'
 import ZoomIn from './ZoomIn'
 import ZoomOut from './ZoomOut'
 
-const Controls = ({
-  isOpen = true,
-  toggleOpen,
-  zoomIn,
-  zoomOut,
-  zoom,
-  zoomMin,
-  zoomMax
-}) => (
+const Controls = ({ isOpen = true, toggleOpen, zoomIn, zoomOut, zoom, zoomMin, zoomMax }) => (
   <div className="rt-controls">
     <div className="rt-controls__content">
       {toggleOpen && <Toggle isOpen={isOpen} toggleOpen={toggleOpen} />}
@@ -30,7 +22,7 @@ Controls.propTypes = {
   zoomIn: PropTypes.func,
   zoomOut: PropTypes.func,
   zoomMin: PropTypes.number,
-  zoomMax: PropTypes.number
+  zoomMax: PropTypes.number,
 }
 
 export default Controls

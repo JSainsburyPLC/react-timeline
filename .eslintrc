@@ -4,9 +4,8 @@
     "browser": true,
     "jest": true
   },
-  "extends": "airbnb",
+  "extends": ["airbnb", "prettier", "prettier/react"],
   "rules": {
-    "comma-dangle": ["error", "never"],
     "semi": ["error", "never"],
     "react/require-default-props": "off",
     "import/no-cycle": "off"

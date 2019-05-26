@@ -5,18 +5,14 @@ import TrackKeys from './TrackKeys'
 
 const Body = ({ tracks, toggleTrackOpen, clickTrackButton }) => (
   <div className="rt-sidebar__body">
-    <TrackKeys
-      tracks={tracks}
-      toggleOpen={toggleTrackOpen}
-      clickTrackButton={clickTrackButton}
-    />
+    <TrackKeys tracks={tracks} toggleOpen={toggleTrackOpen} clickTrackButton={clickTrackButton} />
   </div>
 )
 
 Body.propTypes = {
   tracks: PropTypes.arrayOf(PropTypes.shape({})),
   toggleTrackOpen: PropTypes.func,
-  clickTrackButton: PropTypes.func
+  clickTrackButton: PropTypes.func,
 }
 
 export default Body

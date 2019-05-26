@@ -10,7 +10,7 @@ describe('<Sidebar />', () => {
     const props = {
       timebar: [],
       tracks: [{}],
-      toggleTrackOpen: jest.fn()
+      toggleTrackOpen: jest.fn(),
     }
     const wrapper = shallow(<Sidebar {...props} />)
     expect(wrapper.find(Header).exists()).toBe(true)

@@ -21,7 +21,7 @@ class NowMarker extends PureComponent {
 NowMarker.propTypes = {
   time: PropTypes.shape({}).isRequired,
   visible: PropTypes.bool.isRequired,
-  now: PropTypes.instanceOf(Date).isRequired
+  now: PropTypes.instanceOf(Date).isRequired,
 }
 
 export default NowMarker

@@ -8,12 +8,12 @@ describe('getNumericPropertyValue', () => {
     computedStyle.mockImplementation(node => ({
       getPropertyValue(prop) {
         return node.style[prop]
-      }
+      },
     }))
     const node = {
       style: {
-        height: '100px'
-      }
+        height: '100px',
+      },
     }
     const actual = getNumericPropertyValue(node, 'height')
     expect(actual).toBe(100)

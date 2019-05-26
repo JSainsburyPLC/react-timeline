@@ -14,9 +14,14 @@ const createScaleProps = ({
   zoom = 1,
   zoomMin = undefined,
   zoomMax = undefined,
-  minWidth = undefined
+  minWidth = undefined,
 } = {}) => ({
-  start, end, zoom, zoomMin, zoomMax, minWidth
+  start,
+  end,
+  zoom,
+  zoomMin,
+  zoomMax,
+  minWidth,
 })
 
 const createProps = ({
@@ -27,7 +32,7 @@ const createProps = ({
   tracks = [],
   toggleOpen = jest.fn(),
   zoomIn = jest.fn(),
-  zoomOut = jest.fn()
+  zoomOut = jest.fn(),
 } = {}) => ({
   now,
   scale,
@@ -36,7 +41,7 @@ const createProps = ({
   tracks,
   toggleOpen,
   zoomIn,
-  zoomOut
+  zoomOut,
 })
 
 describe('<Timeline />', () => {

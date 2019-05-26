@@ -3,14 +3,12 @@ import { shallow } from 'enzyme'
 
 import Marker from '..'
 
-const createProps = ({
-  x = 0,
-  modifier = '',
-  children = <div>test</div>,
-  visible = false,
-  highlighted = false
-}) => ({
-  x, modifier, children, visible, highlighted
+const createProps = ({ x = 0, modifier = '', children = <div>test</div>, visible = false, highlighted = false }) => ({
+  x,
+  modifier,
+  children,
+  visible,
+  highlighted,
 })
 
 describe('<Marker />', () => {

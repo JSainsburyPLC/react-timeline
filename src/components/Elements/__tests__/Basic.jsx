@@ -9,7 +9,7 @@ const defaultProps = {
   end: new Date('2017-02-01'),
   style: {},
   tooltip: '',
-  classes: []
+  classes: [],
 }
 
 describe('<Basic />', () => {
@@ -36,7 +36,11 @@ describe('<Basic />', () => {
       const start = new Date('2017-03-20')
       const end = new Date('2017-04-15')
       const props = {
-        ...defaultProps, tooltip, title, start, end
+        ...defaultProps,
+        tooltip,
+        title,
+        start,
+        end,
       }
       const wrapper = shallow(<Basic {...props} />)
       expect(getTooltip(wrapper).text()).toMatch('TEST')

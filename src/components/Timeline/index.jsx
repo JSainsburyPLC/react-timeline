@@ -15,11 +15,11 @@ class Timeline extends Component {
     this.state = {
       pointerDate: null,
       pointerVisible: false,
-      pointerHighlighted: false
+      pointerHighlighted: false,
     }
   }
 
-  handleMouseMove = (e) => {
+  handleMouseMove = e => {
     const { time } = this.props
     this.setState({ pointerDate: time.fromX(getMouseX(e)) })
   }
@@ -33,36 +33,18 @@ class Timeline extends Component {
   }
 
   render() {
-    const {
-      now,
-      time,
-      timebar,
-      tracks,
-      sticky,
-      clickElement
-    } = this.props
+    const { now, time, timebar, tracks, sticky, clickElement } = this.props
 
-    const {
-      pointerDate,
-      pointerVisible,
-      pointerHighlighted
-    } = this.state
+    const { pointerDate, pointerVisible, pointerHighlighted } = this.state
 
     const grid = getGrid(timebar)
 
     return (
       <div className="rt-timeline" style={{ width: time.timelineWidthStyle }}>
-        { now && <NowMarker now={now} visible time={time} /> }
-        { pointerDate
-          && (
-          <PointerMarker
-            date={pointerDate}
-            time={time}
-            visible={pointerVisible}
-            highlighted={pointerHighlighted}
-          />
-          )
-        }
+        {now && <NowMarker now={now} visible time={time} />}
+        {pointerDate && (
+          <PointerMarker date={pointerDate} time={time} visible={pointerVisible} highlighted={pointerHighlighted} />
+        )}
         <Header
           time={time}
           timebar={timebar}
@@ -72,12 +54,7 @@ class Timeline extends Component {
           width={time.timelineWidthStyle}
           sticky={sticky}
         />
-        <Body
-          time={time}
-          grid={grid}
-          tracks={tracks}
-          clickElement={clickElement}
-        />
+        <Body time={time} grid={grid} tracks={tracks} clickElement={clickElement} />
       </div>
     )
   }
@@ -86,15 +63,17 @@ class Timeline extends Component {
 Timeline.propTypes = {
   now: PropTypes.instanceOf(Date),
   time: PropTypes.shape({
-    fromX: PropTypes.func.isRequired
+    fromX: PropTypes.func.isRequired,
   }).isRequired,
-  timebar: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    title: PropTypes.string
-  }).isRequired).isRequired,
+  timebar: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      title: PropTypes.string,
+    }).isRequired
+  ).isRequired,
   tracks: PropTypes.arrayOf(PropTypes.shape({})),
   sticky: PropTypes.shape({}),
-  clickElement: PropTypes.func
+  clickElement: PropTypes.func,
 }
 
 export default Timeline

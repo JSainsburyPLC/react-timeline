@@ -4,23 +4,19 @@ import PropTypes from 'prop-types'
 
 import BasicElement from '../../Elements/Basic'
 
-const Element = (props) => {
-  const {
-    time, style, title, start, end, classes, dataSet, tooltip, clickElement
-  } = props
+const Element = props => {
+  const { time, style, title, start, end, classes, dataSet, tooltip, clickElement } = props
 
-  const handleClick = () => { clickElement(props) }
+  const handleClick = () => {
+    clickElement(props)
+  }
   const elementStyle = {
     ...time.toStyleLeftAndWidth(start, end),
-    ...clickElement ? { cursor: 'pointer' } : {}
+    ...(clickElement ? { cursor: 'pointer' } : {}),
   }
 
   return (
-    <div
-      className="rt-track__element"
-      style={elementStyle}
-      onClick={(clickElement && handleClick) && handleClick}
-    >
+    <div className="rt-track__element" style={elementStyle} onClick={clickElement && handleClick && handleClick}>
       <BasicElement
         title={title}
         start={start}
@@ -43,11 +39,11 @@ Element.propTypes = {
   start: PropTypes.instanceOf(Date).isRequired,
   end: PropTypes.instanceOf(Date).isRequired,
   tooltip: PropTypes.string,
-  clickElement: PropTypes.func
+  clickElement: PropTypes.func,
 }
 
 Element.defaultTypes = {
-  clickElement: undefined
+  clickElement: undefined,
 }
 
 export default Element

@@ -15,26 +15,23 @@ jest.mock('../../../utils/getMouseX')
 const time = createTime({
   start: new Date('2018-01-01'),
   end: new Date('2019-01-01'),
-  zoom: 1
+  zoom: 1,
 })
 
-const defaultTimebar = [{
-  useAsGrid: true,
-  id: '1',
-  cells: [{ id: 'cell-1' }]
-}]
+const defaultTimebar = [
+  {
+    useAsGrid: true,
+    id: '1',
+    cells: [{ id: 'cell-1' }],
+  },
+]
 
-const createProps = ({
-  now = new Date(),
-  timebar = defaultTimebar,
-  tracks = [],
-  isOpen
-} = {}) => ({
+const createProps = ({ now = new Date(), timebar = defaultTimebar, tracks = [], isOpen } = {}) => ({
   now,
   time,
   timebar,
   tracks,
-  isOpen
+  isOpen,
 })
 
 describe('<Timeline />', () => {

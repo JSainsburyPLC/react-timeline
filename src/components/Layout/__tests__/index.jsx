@@ -19,7 +19,7 @@ const createProps = ({
   timebar = [],
   time = {
     fromX: jest.fn(() => new Date()),
-    toX: jest.fn(() => 0)
+    toX: jest.fn(() => 0),
   },
   tracks = [],
   now = new Date(),
@@ -28,7 +28,7 @@ const createProps = ({
   enableSticky = true,
   onLayoutChange = jest.fn(),
   timelineViewportWidth = 1000,
-  sidebarWidth = 200
+  sidebarWidth = 200,
 } = {}) => ({
   timebar,
   time,
@@ -39,7 +39,7 @@ const createProps = ({
   enableSticky,
   onLayoutChange,
   timelineViewportWidth,
-  sidebarWidth
+  sidebarWidth,
 })
 
 describe('<Layout />', () => {
@@ -47,7 +47,7 @@ describe('<Layout />', () => {
     computedStyle.mockImplementation(node => ({
       getPropertyValue(prop) {
         return node.style[prop]
-      }
+      },
     }))
     raf.mockImplementation(fn => fn())
   })
@@ -74,7 +74,9 @@ describe('<Layout />', () => {
   describe('sticky header', () => {
     it('becomes sticky when the window is within the timeline', () => {
       const listeners = {}
-      addListener.mockImplementation((evt, fun) => { listeners[evt] = fun })
+      addListener.mockImplementation((evt, fun) => {
+        listeners[evt] = fun
+      })
       removeListener.mockImplementation(jest.fn())
 
       const props = createProps()
@@ -84,29 +86,29 @@ describe('<Layout />', () => {
       wrapper.instance().setHeaderHeight(50)
       wrapper.instance().timeline.current.getBoundingClientRect = () => ({
         top: -50,
-        bottom: 100
+        bottom: 100,
       })
       listeners.scroll()
       expect(wrapper.state()).toMatchObject({
-        isSticky: true
+        isSticky: true,
       })
 
       wrapper.instance().timeline.current.getBoundingClientRect = () => ({
         top: 10,
-        bottom: 100
+        bottom: 100,
       })
       listeners.scroll()
       expect(wrapper.state()).toMatchObject({
-        isSticky: false
+        isSticky: false,
       })
 
       wrapper.instance().timeline.current.getBoundingClientRect = () => ({
         top: -60,
-        bottom: 20
+        bottom: 20,
       })
       listeners.scroll()
       expect(wrapper.state()).toMatchObject({
-        isSticky: false
+        isSticky: false,
       })
 
       wrapper.unmount()
@@ -117,7 +119,10 @@ describe('<Layout />', () => {
       const props = createProps()
       const wrapper = mount(<Layout {...props} />)
       wrapper.setState({ isSticky: true })
-      wrapper.find(Timeline).prop('sticky').handleHeaderScrollY('100')
+      wrapper
+        .find(Timeline)
+        .prop('sticky')
+        .handleHeaderScrollY('100')
       expect(wrapper.find('.rt-layout__timeline').instance().scrollLeft).toBe(100)
     })
   })

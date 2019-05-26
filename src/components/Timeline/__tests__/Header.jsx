@@ -10,14 +10,14 @@ const createStickyProp = ({
   handleHeaderScrollY = jest.fn(),
   headerHeight = 0,
   viewportWidth = 0,
-  scrollLeft = 0
+  scrollLeft = 0,
 } = {}) => ({
   isSticky,
   setHeaderHeight,
   handleHeaderScrollY,
   headerHeight,
   viewportWidth,
-  scrollLeft
+  scrollLeft,
 })
 
 const createProps = ({
@@ -26,7 +26,7 @@ const createProps = ({
   onMove = jest.fn(),
   onEnter = jest.fn(),
   onLeave = jest.fn(),
-  sticky = undefined
+  sticky = undefined,
 } = {}) => ({
   time,
   timebar,
@@ -34,7 +34,7 @@ const createProps = ({
   onEnter,
   onLeave,
   sticky,
-  width: '1000px'
+  width: '1000px',
 })
 
 describe('<Header />', () => {
@@ -132,7 +132,7 @@ describe('<Header />', () => {
       const wrapper = mount(<Header {...props} />)
       expect(wrapper.find('.rt-timeline__header').prop('style')).toEqual({
         width: 100,
-        height: 20
+        height: 20,
       })
     })
 

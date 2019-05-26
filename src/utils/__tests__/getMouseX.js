@@ -5,8 +5,8 @@ describe('getMouseX', () => {
     const event = {
       clientX: 200,
       currentTarget: {
-        getBoundingClientRect: () => ({ left: 10 })
-      }
+        getBoundingClientRect: () => ({ left: 10 }),
+      },
     }
     expect(getMouseX(event)).toBe(190)
   })

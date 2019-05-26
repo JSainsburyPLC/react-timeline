@@ -15,7 +15,7 @@ class Timeline extends Component {
     this.state = {
       time: createTime({ ...props.scale, viewportWidth: timelineViewportWidth }),
       timelineViewportWidth,
-      sidebarWidth
+      sidebarWidth,
     }
   }
 
@@ -26,7 +26,7 @@ class Timeline extends Component {
     if (nextProps.scale !== scale) {
       const time = createTime({
         ...nextProps.scale,
-        viewportWidth: timelineViewportWidth
+        viewportWidth: timelineViewportWidth,
       })
       this.setState({ time })
     }
@@ -36,13 +36,16 @@ class Timeline extends Component {
     const { scale } = this.props
     const time = createTime({
       ...scale,
-      viewportWidth: timelineViewportWidth
+      viewportWidth: timelineViewportWidth,
     })
-    this.setState({
-      time,
-      timelineViewportWidth,
-      sidebarWidth
-    }, cb)
+    this.setState(
+      {
+        time,
+        timelineViewportWidth,
+        sidebarWidth,
+      },
+      cb
+    )
   }
 
   render() {
@@ -57,7 +60,7 @@ class Timeline extends Component {
       timebar,
       toggleTrackOpen,
       enableSticky = false,
-      scrollToNow
+      scrollToNow,
     } = this.props
 
     const { time, timelineViewportWidth, sidebarWidth } = this.state
@@ -102,7 +105,7 @@ Timeline.propTypes = {
     zoom: PropTypes.number.isRequired,
     zoomMin: PropTypes.number,
     zoomMax: PropTypes.number,
-    minWidth: PropTypes.number
+    minWidth: PropTypes.number,
   }),
   isOpen: PropTypes.bool,
   toggleOpen: PropTypes.func,
@@ -115,7 +118,7 @@ Timeline.propTypes = {
   now: PropTypes.instanceOf(Date),
   toggleTrackOpen: PropTypes.func,
   enableSticky: PropTypes.bool,
-  scrollToNow: PropTypes.bool
+  scrollToNow: PropTypes.bool,
 }
 
 export default Timeline

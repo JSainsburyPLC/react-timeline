@@ -8,7 +8,7 @@ import Grid from '../Grid'
 const defaultProps = {
   time: {},
   grid: [],
-  tracks: []
+  tracks: [],
 }
 
 describe('<Body />', () => {
@@ -25,7 +25,7 @@ describe('<Body />', () => {
   it('does not render <Grid /> if grid prop does not exist', () => {
     const props = {
       ...defaultProps,
-      grid: undefined
+      grid: undefined,
     }
     const wrapper = shallow(<Body {...props} />)
     expect(wrapper.find(Grid).exists()).toBe(false)

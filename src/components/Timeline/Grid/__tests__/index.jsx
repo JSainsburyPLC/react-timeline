@@ -7,23 +7,25 @@ import createTime from '../../../../utils/time'
 const time = createTime({
   start: new Date('2017-01-01T00:00:00.000Z'),
   end: new Date('2017-01-30T00:00:00.000Z'),
-  zoom: 10 // 10px === 1 day
+  zoom: 10, // 10px === 1 day
 })
 
 const grid = [
   {
     id: '1',
     start: new Date('2017-01-01T00:00:00.000Z'),
-    end: new Date('2017-01-06T00:00:00.000Z')
-  }, {
+    end: new Date('2017-01-06T00:00:00.000Z'),
+  },
+  {
     id: '2',
     start: new Date('2017-01-06T00:00:00.000Z'),
-    end: new Date('2017-01-11T00:00:00.000Z')
-  }, {
+    end: new Date('2017-01-11T00:00:00.000Z'),
+  },
+  {
     id: '3',
     start: new Date('2017-01-11T00:00:00.000Z'),
-    end: new Date('2017-01-16T00:00:00.000Z')
-  }
+    end: new Date('2017-01-16T00:00:00.000Z'),
+  },
 ]
 
 describe('<Grid />', () => {
