@@ -14,13 +14,13 @@
   "license": "MIT",
   "private": false,
   "devDependencies": {
-    "babel-core": "^6.26.3",
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/preset-react": "^7.0.0",
     "babel-eslint": "^8.2.3",
-    "babel-loader": "^7.1.4",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
+    "babel-loader": "^8.0.6",
     "css-loader": "^0.28.11",
     "eslint": "^4.9.0",
     "eslint-config-airbnb": "16.1.0",
@@ -38,6 +38,6 @@
   "dependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-timelines": "^2.3.0"
+    "react-timelines": "file:.."
   }
 }
