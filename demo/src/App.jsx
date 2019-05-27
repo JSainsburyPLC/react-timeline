@@ -1,18 +1,12 @@
+/* eslint-disable import/no-unresolved */
 import React, { Component } from 'react'
 import Timeline from 'react-timelines'
 
 import 'react-timelines/lib/css/style.css'
 
-import {
-  START_YEAR,
-  NUM_OF_YEARS,
-  NUM_OF_TRACKS,
-} from './constants'
+import { START_YEAR, NUM_OF_YEARS, NUM_OF_TRACKS } from './constants'
 
-import {
-  buildTimebar,
-  buildTrack,
-} from './builders'
+import { buildTimebar, buildTrack } from './builders'
 
 import { fill } from './utils'
 
@@ -39,39 +33,38 @@ class App extends Component {
     this.state = {
       open: false,
       zoom: 2,
+      // eslint-disable-next-line react/no-unused-state
       tracksById,
       tracks: Object.values(tracksById),
     }
   }
 
   handleToggleOpen = () => {
-    this.setState({ open: !this.state.open })
+    this.setState(({ open }) => ({ open: !open }))
   }
 
   handleZoomIn = () => {
-    this.setState({
-      zoom: Math.min(this.state.zoom + 1, MAX_ZOOM),
-    })
+    this.setState(({ zoom }) => ({ zoom: Math.min(zoom + 1, MAX_ZOOM) }))
   }
 
   handleZoomOut = () => {
-    this.setState({
-      zoom: Math.max(this.state.zoom - 1, MIN_ZOOM),
-    })
+    this.setState(({ zoom }) => ({ zoom: Math.max(zoom - 1, MIN_ZOOM) }))
   }
 
-  handleToggleTrackOpen = (track) => {
-    const tracksById = {
-      ...this.state.tracksById,
-      [track.id]: {
-        ...track,
-        isOpen: !track.isOpen,
-      },
-    }
+  handleToggleTrackOpen = track => {
+    this.setState(state => {
+      const tracksById = {
+        ...state.tracksById,
+        [track.id]: {
+          ...track,
+          isOpen: !track.isOpen,
+        },
+      }
 
-    this.setState({
-      tracksById,
-      tracks: Object.values(tracksById),
+      return {
+        tracksById,
+        tracks: Object.values(tracksById),
+      }
     })
   }
 
@@ -95,7 +88,10 @@ class App extends Component {
           zoomIn={this.handleZoomIn}
           zoomOut={this.handleZoomOut}
           clickElement={clickElement}
-          clickTrackButton={(track) => { alert(JSON.stringify(track)) }}
+          clickTrackButton={track => {
+            // eslint-disable-next-line no-alert
+            alert(JSON.stringify(track))
+          }}
           timebar={timebar}
           tracks={tracks}
           now={now}
