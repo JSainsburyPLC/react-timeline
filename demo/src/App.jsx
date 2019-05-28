@@ -1,8 +1,8 @@
 /* eslint-disable import/no-unresolved */
 import React, { Component } from 'react'
-import Timeline from '../..'
+import Timeline from 'react-timelines'
 
-import '../../lib/css/style.css'
+import 'react-timelines/lib/css/style.css'
 
 import { START_YEAR, NUM_OF_YEARS, NUM_OF_TRACKS } from './constants'
 
