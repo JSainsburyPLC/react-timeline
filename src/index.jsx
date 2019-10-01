@@ -19,7 +19,8 @@ class Timeline extends Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  // eslint-disable-next-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
     const { scale } = this.props
     const { timelineViewportWidth } = this.state
 

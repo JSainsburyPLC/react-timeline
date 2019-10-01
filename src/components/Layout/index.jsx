@@ -182,7 +182,9 @@ class Layout extends PureComponent {
 Layout.propTypes = {
   enableSticky: PropTypes.bool.isRequired,
   timebar: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
-  time: PropTypes.shape({}).isRequired,
+  time: PropTypes.shape({
+    toX: PropTypes.func.isRequired,
+  }).isRequired,
   tracks: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   now: PropTypes.instanceOf(Date),
   isOpen: PropTypes.bool,

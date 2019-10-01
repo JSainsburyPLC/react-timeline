@@ -31,7 +31,9 @@ const Element = props => {
 }
 
 Element.propTypes = {
-  time: PropTypes.shape({}).isRequired,
+  time: PropTypes.shape({
+    toStyleLeftAndWidth: PropTypes.func,
+  }).isRequired,
   style: PropTypes.shape({}),
   classes: PropTypes.arrayOf(PropTypes.string.isRequired),
   dataSet: PropTypes.shape({}),

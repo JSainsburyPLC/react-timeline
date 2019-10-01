@@ -15,7 +15,9 @@ const PointerMarker = ({ time, date, visible, highlighted }) => (
 )
 
 PointerMarker.propTypes = {
-  time: PropTypes.shape({}).isRequired,
+  time: PropTypes.shape({
+    toX: PropTypes.func.isRequired,
+  }).isRequired,
   date: PropTypes.instanceOf(Date).isRequired,
   visible: PropTypes.bool,
   highlighted: PropTypes.bool,

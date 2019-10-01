@@ -64,6 +64,8 @@ Timeline.propTypes = {
   now: PropTypes.instanceOf(Date),
   time: PropTypes.shape({
     fromX: PropTypes.func.isRequired,
+    toStyleLeftAndWidth: PropTypes.func,
+    timelineWidthStyle: PropTypes.string,
   }).isRequired,
   timebar: PropTypes.arrayOf(
     PropTypes.shape({

@@ -10,7 +10,9 @@ const Grid = ({ time, grid }) => (
 )
 
 Grid.propTypes = {
-  time: PropTypes.shape({}).isRequired,
+  time: PropTypes.shape({
+    toStyleLeftAndWidth: PropTypes.func,
+  }).isRequired,
   grid: PropTypes.arrayOf(
     PropTypes.shape({
       start: PropTypes.instanceOf(Date).isRequired,

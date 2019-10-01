@@ -19,7 +19,9 @@ class NowMarker extends PureComponent {
 }
 
 NowMarker.propTypes = {
-  time: PropTypes.shape({}).isRequired,
+  time: PropTypes.shape({
+    toX: PropTypes.func.isRequired,
+  }).isRequired,
   visible: PropTypes.bool.isRequired,
   now: PropTypes.instanceOf(Date).isRequired,
 }
