@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
-    "react-scripts": "^3.1.2",
+    "react": "^16.13.1",
+    "react-dom": "16.13.1",
+    "react-scripts": "^3.4.1",
     "react-timelines": "^2.6.1"
   },
   "scripts": {
@@ -14,7 +14,7 @@
     "deploy": "gh-pages -d ./build"
   },
   "devDependencies": {
-    "gh-pages": "^2.1.1"
+    "gh-pages": "^2.2.0"
   },
   "browserslist": {
     "production": [
