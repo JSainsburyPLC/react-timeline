@@ -1,10 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import createClasses from '../../../utils/classes'
+
 const Grid = ({ time, grid }) => (
   <div className="rt-grid">
-    {grid.map(({ id, start, end }) => (
-      <div key={id} className="rt-grid__cell" style={time.toStyleLeftAndWidth(start, end)} />
+    {grid.map(({ id, start, end, classes }) => (
+      <div key={id} className={createClasses('rt-grid__cell', classes)} style={time.toStyleLeftAndWidth(start, end)} />
     ))}
   </div>
 )
